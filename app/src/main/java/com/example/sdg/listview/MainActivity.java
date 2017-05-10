@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String[] name = {"Chan Chak Long", "Chan Chun Hin", "Chan Hoi Hin", "Chan Hoi Ming", "Char Yuk Hay"};
+        final String[] name = {"Chan Chak Long", "Chan Chun Hin", "Chan Hoi Hin", "Chan Hoi Ming", "Char Yuk Hay"};
         String[] status = {"Hi", "Bye", "#Dioceasan", "123", "000"};
         String[] DOB = {"5/6", "2/7", "24/5", "1/4", "7/7"};
         int[] grade = {7, 8, 9, 10, 11};
@@ -23,7 +23,9 @@ public class MainActivity extends AppCompatActivity {
         Student students[] = new Student[5];
 
         Student stemp;
-        for (int i = 0; i < 5; i++) {
+
+        for (int i = 0; i < 5; i++)
+        {
             stemp = new Student();
 
 
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         view_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity.this, "", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, name[position], Toast.LENGTH_SHORT).show();
             }
         });
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, students);
